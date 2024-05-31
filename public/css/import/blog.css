@@ -1,0 +1,32 @@
+#leninilabs-text {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #333; /* Màu chữ đen */
+  text-align: center;
+  margin-top: 50px; /* Khoảng cách từ đỉnh trang */
+}
+
+#leninilabs-text strong {
+  font-weight: bold; /* Chữ in đậm */
+  color: #0066cc; /* Màu xanh dương */
+}
+
+#leninilabs-text em {
+  font-style: italic; /* Chữ in nghiêng */
+  color: #cc0000; /* Màu đỏ */
+}
+
+#leninilabs-text .highlight {
+  background-color: #ffff00; /* Màu nền vàng */
+}
+
+#leninilabs-text .member-card {
+  font-weight: bold; /* Chữ in đậm */
+  color: #009933; /* Màu xanh lá cây */
+}
+
+/* Để tạo chính sách ưu đãi */
+#leninilabs-text .promo {
+  font-size: 18px;
+  color: #ff6600; /* Màu cam */
+}

